@@ -1,1 +1,95 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+ 
+</head>
 
+<body class="body">
+ <div class="login">
+	<h1 class="h1">Country GDP Prediction</h1>
+<div>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	
+        <div style="width: 48%; height: 100px; float: left;">
+          <input type="text" name="iRegion" placeholder="Region" required="required" >
+  
+          <input type="text" name="ipopulation" placeholder="Population" required="required" />
+          <input type="text" name="iarea" placeholder="Area" required="required" />  
+          <input type="text" name="ipopulation_density" placeholder="Poulation Desity" required="required" />
+          <input type="text" name="icoastline" placeholder="Coastline" required="required" />
+
+          <input type="text" name="iphones" placeholder="Phones" required="required" />
+          <input type="text" name="iarable" placeholder="Arable" required="required" />
+          
+        </div>
+<div style="margin-left: 49%; height: 100px;">
+  
+  <input type="text" name="icrops" placeholder="Crops" required="required" />
+  <input type="text" name="iclimate" placeholder="Climate" required="required" />
+  <input type="text" name="ibirthrate" placeholder="Birth rate" required="required" />
+  <input type="text" name="ideathrate" placeholder="Death Rate" required="required" />
+  <input type="text" name="iagriculture" placeholder="Agriculture" required="required" />
+  <input type="text" name="iindustry" placeholder="Industry" required="required" />
+  <input type="text" name="iservice" placeholder="Service" required="required" />
+  
+  
+  
+
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+ <button type="submit" class="btn btn-primary btn-block btn-large" onclick="country()">Predict</button>
+    </form>
+  </form>
+</div>
+
+<br>
+
+<DIV >{{ prediction_text }}<br>
+  {{ prediction_text2 }}</DIV>
+
+ </div>
+ <script>
+  var checkDiv = setInterval(function(){
+
+    var my_div_width = $("#id1").width(); // find width
+    
+    if( my_div_width > 0) { 
+      clearInterval(checkDiv);
+         aTestFunction();
+      }
+    }, 50); // check after 10ms every time
+    
+    function country(){
+      var a=document.getElementById('c').value
+      console.log(a)
+      document.getElementById("id1").innerHTML=a
+    }
+  
+ </script>
+
+</script>
+</body>
+</html>
